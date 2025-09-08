@@ -1,12 +1,5 @@
 import express from 'express';
 import cors from 'cors';
-<<<<<<< HEAD
-
-
-const app = express();
-app.use(cors());
-app.use(express.json());
-=======
 import {ChatGroq} from "@langchain/groq"
 import { HumanMessage } from '@langchain/core/messages';
 import dotenv from 'dotenv';
@@ -30,4 +23,3 @@ app.post('/api/chat', async (req, res) => {
     const response = await chat.invoke([new HumanMessage(message)]);
     res.json({reply: response.content});
 });
->>>>>>> 08e75cbe227aa952149da53ba6f3ad48693accee
