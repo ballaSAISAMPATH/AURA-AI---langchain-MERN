@@ -1,6 +1,7 @@
 {
   "name": "backend",
   "version": "1.0.0",
+  "type": "module",
   "description": "-- upon delusion and requests of 1st year MVGRians.",
   "main": "index.js",
   "scripts": {
