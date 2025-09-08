@@ -6,6 +6,7 @@ const Form = () => {
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState('');
   const [isLoading, setIsLoading] = useState(false);
+
   const messagesEndRef = useRef(null);
 
   const sendMessage = async () => {
@@ -17,6 +18,7 @@ const Form = () => {
     setIsLoading(true);
 
     try {
+
       const response = await axios.post('https://api.example.com/chat', { message: userMessage.text });
       const botMessage = { text: response.data.reply, sender: 'bot' };
       setMessages((prevMessages) => [...prevMessages, botMessage]);
@@ -26,6 +28,7 @@ const Form = () => {
         setMessages((prevMessages) => [...prevMessages, botMessage]);
         setIsLoading(false);
       }, 1500);
+
 
     } catch (error) {
       console.error('Error sending message:', error);
@@ -41,6 +44,7 @@ const Form = () => {
       sendMessage();
     }
   };
+
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -126,6 +130,7 @@ const Form = () => {
           background: #374151; /* gray-700 */
         }
         .custom-scrollbar::-webkit-scrollbar-thumb {
+
           background-color: #4b5563; /* gray-600 */
           border-radius: 20px;
           border: 2px solid #374151; /* gray-700 */
